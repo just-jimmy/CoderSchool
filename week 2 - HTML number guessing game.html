@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="message">Welcome to the random number guessing game!
+Guess a number from 1 to 10</div>
+<input type="text" id="number">
+<button id="guessButton">Guess</button>
+</body>
+<script>
+function randomRange(myMin, myMax) {
+  return Math.floor(Math.random() * (myMax - myMin + 1) +myMin);
+}
+
+var guessCounter = 1;
+var maxGuesses = 10;
+var randomNum = randomRange(1, 10);
+
+var button = document.getElementById('guessButton');
+button.addEventListener('click', function() {
+   var userGuess = parseInt(document.getElementById('number'));
+   do {
+      if (userGuess < randomNum) {
+        document.getElementById("message").innerHTML = "You guessed too low!!";
+      } else if (userGuess > randomNum) {
+        document.getElementById("message").innerHTML = "You guessed too high!";
+      } else {
+        document.getElementById("message").innerHTML = "Congratulations!!! You guessed correctly!!";
+      }
+  } while (userGuess != (randomNum && ++guessCounter < maxGuesses)
+)
+  	  if (maxGuesses === guessCounter) {
+     alert("YOU LOSE! You're all out of guesses!");
+   }
+})
+</script>
+</html>
+
